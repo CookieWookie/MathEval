@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06C8E2F8-ABFF-4D5D-A741-BCD083E4E190}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MathEvaluator.Core</RootNamespace>
+    <AssemblyName>MathEvaluator.Core</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MathEvaluator.Core.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MathEvaluator.Core.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="MathEvaluator.Core.ruleset" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Evaluators\Differentiator.cs" />
+    <Compile Include="Evaluators\Evaluator.cs" />
+    <Compile Include="Evaluators\Optimizer.cs" />
+    <Compile Include="Evaluators\Visitor.cs" />
+    <Compile Include="MathEx.cs" />
+    <Compile Include="Setup.cs" />
+    <Compile Include="Syntax\Tokens\BinaryOperationType.cs" />
+    <Compile Include="Syntax\Tokens\FunctionType.cs" />
+    <Compile Include="Evaluators\EvaluationContext.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="InputStream.cs" />
+    <Compile Include="Lexic\ILexer.cs" />
+    <Compile Include="Lexic\LexicTokens.cs" />
+    <Compile Include="Lexic\Lexer.cs" />
+    <Compile Include="Lexic\LexerResult.cs" />
+    <Compile Include="Lexic\Readers\CharReader.cs" />
+    <Compile Include="Lexic\Readers\ConstantReader.cs" />
+    <Compile Include="Lexic\Readers\NamedReader.cs" />
+    <Compile Include="Lexic\Readers\RegexReader.cs" />
+    <Compile Include="Lexic\Readers\StringReader.cs" />
+    <Compile Include="Lexic\Readers\TokenReader.cs" />
+    <Compile Include="Lexic\Readers\WhitespaceReader.cs" />
+    <Compile Include="OperationPriorities.cs" />
+    <Compile Include="ParserException.cs" />
+    <Compile Include="ReadOnlySet.cs" />
+    <Compile Include="Syntax\Tokens\BinarySyntaxToken.cs" />
+    <Compile Include="Syntax\Tokens\ConstantSyntaxToken.cs" />
+    <Compile Include="Syntax\Tokens\FunctionSyntaxToken.cs" />
+    <Compile Include="Syntax\IParser.cs" />
+    <Compile Include="Syntax\Parser.cs" />
+    <Compile Include="Syntax\ParserResult.cs" />
+    <Compile Include="Syntax\Tokens\NamedConstantSyntaxToken.cs" />
+    <Compile Include="Syntax\Tokens\SyntaxToken.cs" />
+    <Compile Include="Syntax\Tokens\SyntaxTokenType.cs" />
+    <Compile Include="Syntax\SyntaxTreeHelpers.cs" />
+    <Compile Include="Syntax\Tokens\UnarySyntaxToken.cs" />
+    <Compile Include="Syntax\Tokens\VariableSyntaxToken.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Syntax\Tokens\UnaryOperationType.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
